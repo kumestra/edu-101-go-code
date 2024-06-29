@@ -9,7 +9,12 @@ import (
 )
 
 func main() {
-	c, err := client.Dial(client.Options{})
+
+	serverAddress := "localhost:7233"
+
+	c, err := client.Dial(client.Options{
+		HostPort: serverAddress,
+	})
 	if err != nil {
 		log.Fatalln("Unable to create client", err)
 	}
